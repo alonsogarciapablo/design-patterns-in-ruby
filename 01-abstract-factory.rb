@@ -1,7 +1,7 @@
 # ABSTRACT FACTORY
 
 # Abstract factory
-class FruitFactory
+class FruitsFactory
   def make_apple
     raise NotImplementedError
   end
@@ -12,7 +12,7 @@ class FruitFactory
 end
 
 # Concrete factory
-class BlueFruitFactory < FruitFactory
+class BlueFruitsFactory < FruitsFactory
   def make_apple
     return new BlueApple
   end
@@ -23,7 +23,7 @@ class BlueFruitFactory < FruitFactory
 end
 
 # Concrete factory
-class GreenFruitFactory < FruitFactory
+class GreenFruitsFactory < FruitsFactory
   def make_apple
     return new GreenApple
   end
@@ -60,11 +60,14 @@ end
 # Usage
 #
 # factory = if color == 'green'
-#   GreenFruitFactory
+#   GreenFruitsFactory
+# elsif color == 'blue'
+#   BlueFruitsFactory
 # else
-#   BlueFruitFactory
+#   raise 'No factory for that color'
 # end
 #
 # apple = factory.create_apple
 # orange = factory.create_orange
+# fruits = [apple, orange]
 #
